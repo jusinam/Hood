@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="container" >
+            <div class=" text-center" >
+                    <h1 >Welcome to The Hood</h1>
+                    {% if user.is_authenticated %}
+                    <form  action="">
+                        <div class="input-group md-form form-sm mb-4">
+                            <input class="form-control my-0 py-0 red-border" type="text" placeholder="Search" aria-label="Search">
+                            <div class="input-group-append">
+                              <span class="input-group-text dark lighten-3" id="basic-text1"><i class="fas fa-search text-dark"
+                                  aria-hidden="true"></i></span>
+                            </div>
+                          </div>
+                      </form>
+                      {% endif %}
+                    <h5 style="margin-top:6%"> Get Started </h5>
+                   
+                </div>
+</div>
+
+
+{% endblock %}
