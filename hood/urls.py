@@ -18,7 +18,9 @@ urlpatterns = [
     url(r'^hood/(?P<id>\d+)',views.unohood,name='unhood'),
     url(r'^neighbours/(?P<hood_id>\d+)',views.hoodneighbours,name='neighbours'),
     url(r'^new-post/(?P<hood_id>\d+)',views.addpost,name='post'),
-   
+    url(r'^join-hood/(?P<id>\d+)',views.joinhood,name='join-hood'),
+    url(r'^leave-hood/(?P<id>\d+)',views.leavehood,name='leave-hood'),
+    url(r'^search/$',views.searchbusiness,name='search'),
     
 ]
 
