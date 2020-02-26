@@ -15,7 +15,11 @@ urlpatterns = [
     url(r'^profile/(?P<username>\w+)', views.profile, name='profile'),
 
     url(r'^profile/(?P<username>\w+)/edit', views.editprofile, name='edit-profile'),
+    url(r'^hood/(?P<id>\d+)',views.unohood,name='unhood'),
+    url(r'^neighbours/(?P<hood_id>\d+)',views.hoodneighbours,name='neighbours'),
+    url(r'^new-post/(?P<hood_id>\d+)',views.addpost,name='post'),
    
+    
 ]
 
 if settings.DEBUG:
