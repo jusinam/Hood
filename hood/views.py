@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
 from .forms import SignupForm, HoodForm
-from .models import Neighbourhood
+from .models import Neighbourhood, Profile
 
 # Create your views here.
 
@@ -48,4 +48,6 @@ def add_hood(request):
         form = HoodForm()
     return render(request,'new-hood.html',{'form':form})
 
-
+def profile(request,username):
+    
+    return render(request,'registration/profile.html')
