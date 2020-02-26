@@ -12,7 +12,7 @@ class Neighbourhood(models.Model):
     logo = models.ImageField(upload_to="images",default="hood.png")
     description = models.CharField(max_length=5000)
     RedCross_contact =  models.IntegerField(blank=True,null=True)
-    
+    admin = models.ForeignKey("Profile",on_delete=models.CASCADE,related_name="hood")
 
 
     def create_neighbourhood(self):
@@ -24,3 +24,22 @@ class Neighbourhood(models.Model):
     def __str__(self):
         return f"{self.name}"
 
+class Profile(models.Model):
+    user = models.OneToOneField(User,on_delete=models.CASCADE,related_name="profile")
+    name = models.CharField(max_length=50)
+    bio = models.TextField()
+    profile_pic = models.ImageField(upload_to="images",default="profile.png")
+    location = models.CharField(max_length=50)
+    neighbourhood = models.ForeignKey(Neighbourhood,on_delete=models.SET_NULL,null=True,blank=True,related_name="hoodmember")
+
+    @receiver(post_save, sender=User)
+    def create_user_profile(sender, instance, created, **kwargs):
+        if created:
+            Profile.objects.create(user=instance)
+
+    @receiver(post_save, sender=User)
+    def save_user_profile(sender, instance, **kwargs):
+        instance.profile.save()
+        
+    def __str__(self):
+        return f"{self.user.username} profile"
