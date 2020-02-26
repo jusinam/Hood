@@ -7,7 +7,7 @@
     <!-- Empty div -->
     <div class="col-lg-3"></div>
 
-    <div class="col-lg-6 pt-2 mt-4">
+    <div class="col-lg-6 p-2">
         {% if messages %}
         {% for message in messages %}
         <div class="alert alert-{{message.tags}}">
@@ -19,14 +19,16 @@
       {% if form.errors %}
         <p> Incorrect Information </p>
       {% endif %}
-      <div class="panel panel-default" style="margin-top:2%;background: rgba(107, 104, 104, 0.417);padding: 2%;">
+      <div class="panel panel-default" style="margin-top:1%;">
 
         <div class="panel-heading">
           <h3 class="text-center font-weight-bold">Sign Up</h3>
         </div>
         <div class="panel-body">
 
-          <form  action="/accounts/register/" method="post">
+        
+            <form  action="/accounts/register/" method="post" style="font-size:18px;font-weight: 400;">
+
             {% csrf_token %}
 
             {% bootstrap_form form %}
