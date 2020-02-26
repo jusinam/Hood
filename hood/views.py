@@ -3,8 +3,8 @@ from django.contrib.auth import login,authenticate
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
-from .forms import SignupForm, HoodForm
-from .models import Neighbourhood, Profile
+from .forms import SignupForm, HoodForm, BusinessForm, PostForm, UpdateProfileForm
+from .models import Neighbourhood, Profile, Business, Post
 
 # Create your views here.
 
@@ -48,4 +48,27 @@ def addhood(request):
 def profile(request,username):
 
     return render(request,'registration/profile.html')
+
+def unohood(request,id):
+    hood = Neighbourhood.objects.get(id = id)
+    buss = Business.objects.filter(neighbourhood=hood)
+    posts = Post.objects.filter(hood=hood)
+    posts = posts[::-1]
+    if request.method == "POST":
+        form = BusinessForm(request.POST)
+        if form.is_valid():
+            busin_form = form.save(commit=False)
+            busin_form.neighbourhood = hood
+            busin_form.user = request.user.profile
+            busin_form.save()
+            return redirect('unhood', hood.id)
+    else:
+        form = BusinessForm()
+    context ={
+        'hood':hood,
+        'business':buss,
+        'posts':posts,
+        'form':form,      
+    }
+    return render(request,'hood.html',context)
 
