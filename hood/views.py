@@ -29,8 +29,12 @@ def signup(request):
     return render(request, 'registration/registration_form.html', {'form': form})
 
 def home(request):
-   
-    return render(request,'home.html')
+    all_hoods = Neighbourhood.objects.all()
+    all_hoods=all_hoods[::-1]
+    context={
+        'all_hoods':all_hoods
+    }
+    return render(request,'home.html',context)
 
 def add_hood(request):
     if request.method =="POST":
