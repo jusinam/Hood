@@ -72,3 +72,8 @@ def unohood(request,id):
     }
     return render(request,'hood.html',context)
 
+def hoodneighbours(request, hood_id):
+    hood = Neighbourhood.objects.get(id=hood_id)
+    neighbours = Profile.objects.filter(neighbourhood = hood)
+    return render(request,'neighbours.html',{'neighbours':neighbours})
+
