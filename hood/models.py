@@ -61,3 +61,8 @@ class Business(models.Model):
     def __str__(self):
         return f"{self.name} Business"
 
+class Post(models.Model):
+    post = models.CharField(max_length=1000,null=True)
+    date= models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(Profile,on_delete=models.CASCADE,related_name="postowner")
+    hood = models.ForeignKey(Neighbourhood,on_delete=models.CASCADE,related_name="posthood")
