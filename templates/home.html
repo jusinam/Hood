@@ -3,48 +3,52 @@
 {% block content %}
 <div class="container">
 
-   <p> <a class=" btn btn-sm align-middle btn-light btn-outline-dark waves-effect" href="{% url 'new-hood' %}">Add New Hood</a>
-     <form class="" method="get" action="{% url 'search' %}">
-        {% csrf_token %}
-        <div class="md-form my-0">
-            <input class="form-control mr-sm-2 text-center" type="text" placeholder="Search then hit ENTER" name="title" aria-label="Search">
+    <p> <a class=" btn btn-sm align-middle btn-light btn-outline-dark waves-effect" href="{% url 'new-hood' %}">Add New
+            Hood</a>
+        <form class="" method="get" action="{% url 'search' %}">
+            {% csrf_token %}
+            <div class="md-form my-0">
+                <input class="form-control mr-sm-2 text-center" type="text" placeholder="Search then hit ENTER"
+                    name="title" aria-label="Search">
+            </div>
+        </form>
+    </p>
+
+    <div class="row">
+        {% for hood in all_hoods %}
+        <div class="col-md-6">
+
+            <!-- Card -->
+            <div class="card" style="max-width: 50rem;">
+
+                <!-- Card image -->
+                <img class="card-img-top" src="{{hood.logo.url}}" alt="{{hood.name}}">
+
+                <!-- Card content -->
+                <div class="card-body rgba-brown-light p-3">
+                    <span> <strong>Hood :</strong> {{hood.name}} </span> <span class="text-right"
+                        style="margin-left: 30%;"> <strong>Locale :</strong> {{hood.location}}</span>
+                    {% if request.user.profile.neighbourhood  == hood %}
+                    <p class="text-center"></p> <a href="{% url 'leave-hood'  hood.id %}"
+                        class="btn btn-outline-danger btn-md">Leave Hood</a>
+                    <a href="{% url 'unhood' user.profile.neighbourhood.id %}" class="btn btn-md btn-outline-dark"
+                        style="margin-left: 28%;">Explore Hood</a></p>
+
+                    {% elif not request.user.profile.neighbourhood %}
+                    <a href="{% url 'join-hood'  hood.id %}" class="btn btn-outline-primary btn-md">Join Hood</a>
+                    {% endif %}
+                </div>
+                <p class="card-text bd-highlight p-2">{{ hood.description }}</p>
+
+            </div>
+            <!-- Card -->
         </div>
-    </form>
-   </p>
-     
-      <div class="row">
-          {% for hood in all_hoods %}
-          <div class="col-md-6" >
-            
-      <!-- Card -->
-<div class="card" style="max-width: 50rem;">
 
-    <!-- Card image -->
-    <img class="card-img-top" src="{{hood.logo.url}}" alt="{{hood.name}}">
-  
-    <!-- Card content -->
-    <div class="card-body rgba-brown-light p-3">
-       <span> <strong>Hood :</strong> {{hood.name}} </span>  <span class="text-right" style="margin-left: 30%;"> <strong>Locale :</strong> {{hood.location}}</span>
-        {% if request.user.profile.neighbourhood  == hood %}
-        <p class="text-center"></p>  <a href="{% url 'leave-hood'  hood.id %}" class="btn btn-outline-danger btn-md">Leave Hood</a>
-          <a href="{% url 'unhood' user.profile.neighbourhood.id %}" class="btn btn-md btn-outline-dark" style="margin-left: 28%;">Explore Hood</a></p>
 
-          {% elif not request.user.profile.neighbourhood %}
-          <a href="{% url 'join-hood'  hood.id %}" class="btn btn-outline-primary btn-md">Join Hood</a>
-          {% endif %}
+        {% endfor %}
     </div>
-    <p class="card-text bd-highlight p-2">{{ hood.description }}</p>
-  
-  </div>
-  <!-- Card -->
-          </div>
 
-        
-          {% endfor %}
-      </div>
 
-    
 
 </div>
 {% endblock %}
-

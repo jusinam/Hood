@@ -3,23 +3,23 @@
 {% load bootstrap3 %}
 
 {% block content %}
-<div class="container" >
+<div class="container">
 
   <div class="row">
     <div class="col-lg-1"></div>
     <div class="col-lg-10">
-      <h3 class="card bg-transparent p-2 text-center" >
-        BE UPDATED ON THE HAPPENINGS OF YOUR SURROUNDING 
-    </h3>
+      <h3 class="card bg-transparent p-2 text-center">
+        BE UPDATED ON THE HAPPENINGS OF YOUR SURROUNDING
+      </h3>
     </div>
   </div>
-  <div class="row" style="margin-top: 10%;" >
+  <div class="row" style="margin-top: 10%;">
     <!-- Empty div -->
     <div class="col-lg-2"></div>
 
     <div class="col-lg-8  " style="padding: 2%;">
       {% if form.errors %}
-        <p>Password or Username entered is Incorrect </p>
+      <p>Password or Username entered is Incorrect </p>
       {% endif %}
       <div class="panel panel-default">
 
@@ -28,7 +28,7 @@
         </div>
         <div class="panel-body">
 
-          <form   action="/accounts/login/" method="post" style="font-size:20px;font-weight: 400;">
+          <form action="/accounts/login/" method="post" style="font-size:20px;font-weight: 400;">
             {% csrf_token %}
             {% bootstrap_form form%}
 
@@ -46,7 +46,7 @@
       <strong>Not a member yet? <a class="text-info" href="/accounts/register">Register Now</a></strong>
 
     </div>
-      <div class="col-lg-2"></div>
+    <div class="col-lg-2"></div>
   </div>
 </div>
 
