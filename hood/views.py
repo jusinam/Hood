@@ -91,3 +91,9 @@ def addpost(request,hood_id):
         form =PostForm
     return render(request,'post.html',{'form':form})
 
+def joinhood(request,id):
+    neighbourhood = get_object_or_404(Neighbourhood,id=id)
+    request.user.profile.neighbourhood=neighbourhood
+    request.user.profile.save()
+    return redirect('hood')
+
