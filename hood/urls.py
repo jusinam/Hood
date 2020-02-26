@@ -1,6 +1,7 @@
 
 from django.conf.urls import url,include
 from django.conf import settings
+from django.conf.urls.static import static
 from . import views
 
 
@@ -10,4 +11,9 @@ urlpatterns = [
     url(r'^accounts/', include('registration.backends.simple.urls')),
     url(r'^register/', views.signup, name='signup'),
     url(r'^hoods/$',views.home,name='hood'),
+    url(r'^new-hood/',views.add_hood,name='new-hood'),
+    url(r'^profile/(?P<username>\w+)', views.profile, name='profile'),
 ]
+
+if settings.DEBUG:
+    urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
