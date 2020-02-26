@@ -11,8 +11,11 @@ urlpatterns = [
     url(r'^accounts/', include('registration.backends.simple.urls')),
     url(r'^register/', views.signup, name='signup'),
     url(r'^hoods/$',views.home,name='hood'),
-    url(r'^new-hood/',views.add_hood,name='new-hood'),
+    url(r'^new-hood/',views.addhood,name='new-hood'),
     url(r'^profile/(?P<username>\w+)', views.profile, name='profile'),
+
+    url(r'^profile/(?P<username>\w+)/edit', views.editprofile, name='edit-profile'),
+   
 ]
 
 if settings.DEBUG:
