@@ -11,8 +11,7 @@ from .models import Neighbourhood, Profile
 @login_required(login_url='/accounts/login')
 def index(request):
     
-
-    return render(request,'index.html',context)
+    return render(request,'index.html')
 
 def signup(request):
     if request.method == 'POST':
@@ -27,7 +26,6 @@ def signup(request):
     else:
         form = SignupForm()
     return render(request, 'registration/registration_form.html', {'form': form})
-
 def home(request):
     all_hoods = Neighbourhood.objects.all()
     all_hoods=all_hoods[::-1]
@@ -35,8 +33,7 @@ def home(request):
         'all_hoods':all_hoods
     }
     return render(request,'home.html',context)
-
-def add_hood(request):
+def addhood(request):
     if request.method =="POST":
         form  = HoodForm(request.POST,request.FILES)
         if form.is_valid():
@@ -49,5 +46,6 @@ def add_hood(request):
     return render(request,'new-hood.html',{'form':form})
 
 def profile(request,username):
-    
+
     return render(request,'registration/profile.html')
+
