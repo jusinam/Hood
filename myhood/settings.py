@@ -28,6 +28,12 @@ SECRET_KEY = 'rp9d!20)#f4!7h2jwmv35sv^a@me32_w^8(2$2tlkma@yh&97a'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# Email configurations remember to install python-decouple
+EMAIL_USE_TLS = config('EMAIL_USE_TLS')
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
 
 
