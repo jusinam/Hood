@@ -42,44 +42,53 @@ A Django generated web application that allows users to be in the loop about eve
 In setting up this application, you'll mostly work with your bash
 
  Cloning the repository:  
+
  ```
   $ git clone https://github.com/DjCooGie/Hood.git
-```
+ ```
+
  Navigate into the folder
+ 
  ```
   $ cd Hood/
-```
+ ```
+
  Install requirements  
+
  ```
   $ pip install -r requirements.txt 
-```
+ ```
+
  Install and activate Virtual  
+
  ```
   $ python3.6 -m venv virtual - source virtual/bin/activate  
-```  
+ ```  
+
 Install Dependencies  
+ 
  ```
    $ pip install -r requirements.txt 
-```  
+ ```  
  
- *** SetUp your database
+ SetUp your database
+
  ```
  $ python3.6 manage.py makemigrations hood 
- ``` 
  $ python3.6 manage.py migrate 
-```
-Run the application  
  ```
- $ python3.6 manage.py runserver 
-``` 
+
 Testing the application  
+
  ```
  $ python3.6 manage.py test hood
 ```
+
  Running the application  
+
  ```
  $ python3.6 manage.py runserver 
-```
+ ```
   
 ## Technologies Used
   * [Python version 3.8.9](https://www.python.org/) . 
@@ -95,7 +104,6 @@ The profile page, add business and edit profile functionalities are under develo
 
 ## Site Live Link
 [https://evan-hood-ups.herokuapp.com/](https://evan-hood-ups.herokuapp.com/)
-
 
 #### Collaborate
 >Incase of any questions, problems or ideas concerning the app, feel free to reach out to me:
