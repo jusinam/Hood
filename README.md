@@ -107,7 +107,7 @@ The profile page, add business and edit profile functionalities are under develo
 
 #### Collaborate
 >Incase of any questions, problems or ideas concerning the app, feel free to reach out to me:
->>Github: [Evans Nyambane](https://github.com/DjCooGie)
+>>Github: [Evans Onchagwa](https://github.com/jusinam)
 >>Email: evansonchagwa01@gmail.com
 
 #### License
