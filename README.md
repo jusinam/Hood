@@ -2,7 +2,7 @@
 A Django generated web application that allows users to be in the loop about everything happening in their neighborhood. From contact information of different handyman to meeting announcements or even alerts
 
 ## Author
-* Evans Onchagwa
+* Evans ON
 
 
 ### Hood
@@ -44,7 +44,7 @@ In setting up this application, you'll mostly work with your bash
  Cloning the repository:  
 
  ```
-  $ git clone https://github.com/DjCooGie/Hood.git
+  $ git clone https://github.com/jusinam/Hood.git
  ```
 
  Navigate into the folder
@@ -103,13 +103,12 @@ Testing the application
 The profile page, add business and edit profile functionalities are under development.
 
 ## Site Live Link
-[https://evan-hood-ups.herokuapp.com/](https://evan-hood-ups.herokuapp.com/)
+[Click here](https://evan-hood-ups.herokuapp.com/)
 
 #### Collaborate
 >Incase of any questions, problems or ideas concerning the app, feel free to reach out to me:
->>Github: [Evans Onchagwa](https://github.com/jusinam)
->>Email: evansonchagwa01@gmail.com
+>>Email: [Send mail](mailto:evansonchagwa01@gmail.com)
 
 #### License
 MIT
-&copy;2020 Evans Onchagwa
+&copy;2020 Evans ON
